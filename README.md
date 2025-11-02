@@ -1,23 +1,47 @@
 # Paper 2 — Logit: Recession Probability from the Yield Curve (12-Month Horizon)
 
-This repository contains the public excerpts of the analysis featured in  
-[*When the Curve Speaks: Estimating Recession Risk with a Logistic Classification Model*](https://basel-point.substack.com/p/when-the-curve-speaks-estimating-recession-risk).
+This repository is a **publication-style showcase** for the analysis featured in  
+**“When the Curve Speaks: Estimating Recession Risk with a Logistic Classification Model.”**  
+It demonstrates results and method summary without exposing the full implementation.
+
+- 🔗 **Companion article:** https://thebaselpoint.substack.com/p/when-the-curve-speaks
+- 📊 **Preview (HTML):** `Paper2_Logit_Recession_12m_preview.html` (in this repo)
+- 🖼️ **Figures:** `roc_auc_curve.png`, `recession_probabilities.png`
 
 ---
 
-## 📘 Overview
-This notebook demonstrates the core approach used to estimate U.S. recession probability from the yield curve using a logistic classification model.
+## What this shows
+- Key results (ROC/AUC, probability series, zoomed recent window)
+- A concise methods description in plain English
+- Source attribution for macro data (FRED)
 
-- `Paper2_Logit_Recession_12m.ipynb`: main analysis (abridged version).  
-- `figures/`: selected charts used in the Substack article.  
-- `data_sample.csv`: small illustrative sample; full dataset withheld for confidentiality.
+## What this omits (by design)
+- Full notebook and pipeline logic
+- Raw datasets and private paths
+- Parameter sweeps and internal utilities
+
+If you’re a hiring team, PM, or researcher who needs **full technical review**, contact me for access.
 
 ---
 
-## 🔒 Full Access
-Researchers or organizations interested in reviewing the complete codebase and data pipeline may request access directly via  
-📧 **contact@basel-point.com** (or your preferred email).
+## Methods (summary)
+We estimate a 12-month-ahead U.S. recession probability with a **logistic classification model**, using yield curve spreads as predictors:
+- Spreads: **10Y–3M** and **10Y–2Y**
+- Lags: **1-month** and **6-month**
+- Backtest: **expanding-window (walk-forward)** evaluation
+- Outputs: ROC/AUC, precision/recall snapshot, full-history probability with NBER shading, zoomed last-10-years view
+
+This preview includes charts and a narrative summary sufficient for expert readers to understand the approach, while withholding cloneable implementation details.
 
 ---
 
-© 2025 Basel-Point. All rights reserved.
+## Data Sources
+- Federal Reserve Economic Data (FRED): constant-maturity Treasury series and NBER recession indicator.
+- Other macro sources as cited in the article.
+
+> Note: No raw data files are included in this repository.
+
+---
+
+## Environment (minimal)
+The analysis was built with Python and common scientific libraries:
