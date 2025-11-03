@@ -1,33 +1,40 @@
 # Paper 2 — Logit: Recession Probability from the Yield Curve (12-Month Horizon)
 
-**Purpose**  
-This repository provides the technical materials and figures that accompany the Substack article, without exposing the full implementation details.
+This repository provides the technical companion materials for the article published on *The Basel Point* Substack:
 
-**Companion article:** “When the Curve Speaks: Estimating Recession Risk with a Logistic Classification Model”  
-https://thebaselpoint.substack.com/p/when-the-curve-speaks
+📘 **Companion Article:**  
+[*When the Curve Speaks: Estimating Recession Risk with a Logistic Classification Model*](https://thebaselpoint.substack.com/p/when-the-curve-speaks)
 
-## Summary
-We estimate a 12-month-ahead U.S. recession probability using a logistic classification model with yield-curve spreads. The preview here presents results, method notes, and selected figures. Full implementation is withheld.
+---
 
-**Method (brief):**
-- Predictors: 10Y–3M and 10Y–2Y spreads
-- Lags: 1-month and 6-month
-- Evaluation: expanding-window (walk-forward)
-- Outputs: ROC/AUC, precision/recall snapshot, full-history probability with NBER shading, and a recent-window view
+## Repository Contents
 
-## Figures
-- `figures/recession_prob_12m_full.png`
-- `figures/recession_prob_12m_last_8y.png`
-- `figures/roc_walk_forward.png`
-- `figures/confusion_matrix_fed_style.png` 
+- `notebooks/Paper2_Logit_Recession_12m_preview.ipynb` — *Redacted preview notebook.*  
+  Demonstrates methodology and outputs for the logistic regression model used to estimate recession probabilities from the yield curve.  
+  Full implementation details and certain code sections have been intentionally withheld.
 
-## Data Sources
-- Federal Reserve Economic Data (FRED) for Treasury yields and the NBER recession indicator.
-- Additional macro sources as referenced in the article.
-  
-No raw data files are included in this repository.
+- `/figures/` — contains static output charts referenced in the notebook, including the ROC/AUC curve, probability series with NBER shading, and precision/recall plot.
+
+---
+
+## Method Overview
+
+Logistic regression model with an expanding-window (walk-forward) backtest to predict the NBER recession indicator (`USREC`) 12 months ahead.  
+Predictors include the 10Y–3M and 10Y–2Y Treasury spreads, along with 1- and 6-month lags.
+
+---
+
+## Expected Data Files
+
+- `yields_monthly.csv` (or `treasury_yield.csv`) with columns:  
+  `Date`, `3m (DGS3MO)`, `2y (DGS2)`, `10y (DGS10)` — monthly averages or end-of-month; `Date` in `YYYY-MM-DD`.  
+- `usrec_monthly.csv` with columns:  
+  `Date`, `USREC` (NBER recession indicator; 1 = recession, 0 = expansion).
+
+---
 
 ## Environment
+
 - Jupyter Notebook
 - pandas
 - numpy
