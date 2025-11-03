@@ -35,7 +35,18 @@ No raw data files are included in this repository.
 - scikit-learn
 - statsmodels
 
+
+---
+
 ## Access
-Full notebooks and datasets are available upon request for professional review.
-Please contact: thebaselpoint@gmail.com
+
+Full notebooks and datasets are available upon request for professional review.  
+Please contact **thebaselpoint@gmail.com**.
+
+---
+
+© 2025 *The Basel Point Research.*  
+Prepared by **S.Y. Kim**.  
+All rights reserved.
+
 
